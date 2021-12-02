@@ -1,0 +1,37 @@
+name: <wushu_windows_test>
+params:
+  - name: codeUrl
+    value: ${codeUrl} # ${codeUrl} 由伙伴平台发起构建时指定
+  - name: codeBranch
+    value: ${codeBranch} # ${codeBranch} 由伙伴平台发起构建时指定
+  - name: codeCommitId
+    value: ${codeCommitId} # ${codeCommitId} 由伙伴平台发起构建时指定
+  - name: version
+    default: 1.0.0.0
+    value: ${version}-demo # ${version} 由伙伴平台发起构建时指定
+resources:
+  - name: wushu_demo
+    type: git
+    url: git@code.alipay.com:UEM/wushu-test.git
+    ref: master
+    commitID: abfba063252182cb51e0e57d0328d4c9334ed654
+caches: null # 缓存定义
+environment:
+  type: WIN_MACHINE
+buildTasks: # 构建过程/脚本定义，请修改为你的真实构建脚本
+  - name: start_build
+    commands:
+    - echo "start build c++ program ..."
+  - name: build  
+    commands:
+      - |
+        "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2019\Visual Studio Tools\Developer Command Prompt for VS 2019.lnk"
+        cl "D:\ProgramData\C++demo\Project1\Project1\demo.cpp"
+  - name: finished_build
+    commands:
+    - echo "finished build c++ program ..."
+artifacts: # 构建产物定义，请修改为你的真实产物
+  - name: demo 
+    type: file
+    path: output/demo.exe
+timeout: 30000 # 任务超时时长设置，单位为秒
