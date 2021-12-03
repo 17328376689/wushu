@@ -34,4 +34,4 @@ artifacts: # 构建产物定义，请修改为你的真实产物
   - name: demo 
     type: file
     path: output/demo.exe
-timeout: 30000 # 任务超时时长设置，单位为秒
+timeout: 900 # 任务超时时长设置，单位为秒
