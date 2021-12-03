@@ -1,24 +1,24 @@
-name: <wushu_windows_test>
+ï»¿name: <wushu_windows_test>
 params:
   - name: codeUrl
-    value: ${codeUrl} # ${codeUrl} ÓÉ»ï°éÆ½Ì¨·¢Æğ¹¹½¨Ê±Ö¸¶¨
+    value: ${codeUrl} # ${codeUrl} ç”±ä¼™ä¼´å¹³å°å‘èµ·æ„å»ºæ—¶æŒ‡å®š
   - name: codeBranch
-    value: ${codeBranch} # ${codeBranch} ÓÉ»ï°éÆ½Ì¨·¢Æğ¹¹½¨Ê±Ö¸¶¨
+    value: ${codeBranch} # ${codeBranch} ç”±ä¼™ä¼´å¹³å°å‘èµ·æ„å»ºæ—¶æŒ‡å®š
   - name: codeCommitId
-    value: ${codeCommitId} # ${codeCommitId} ÓÉ»ï°éÆ½Ì¨·¢Æğ¹¹½¨Ê±Ö¸¶¨
+    value: ${codeCommitId} # ${codeCommitId} ç”±ä¼™ä¼´å¹³å°å‘èµ·æ„å»ºæ—¶æŒ‡å®š
   - name: version
     default: 1.0.0.0
-    value: ${version}-demo # ${version} ÓÉ»ï°éÆ½Ì¨·¢Æğ¹¹½¨Ê±Ö¸¶¨
+    value: ${version}-demo # ${version} ç”±ä¼™ä¼´å¹³å°å‘èµ·æ„å»ºæ—¶æŒ‡å®š
 resources:
   - name: wushu_demo
     type: git
-    url: git@code.alipay.com:UEM/wushu-test.git
+    url: http://code.alipay.com/UEM/wushu-test.git
     ref: master
     commitID: abfba063252182cb51e0e57d0328d4c9334ed654
-caches: null # »º´æ¶¨Òå
+caches: null # ç¼“å­˜å®šä¹‰
 environment:
   type: WIN_MACHINE
-buildTasks: # ¹¹½¨¹ı³Ì/½Å±¾¶¨Òå£¬ÇëĞŞ¸ÄÎªÄãµÄÕæÊµ¹¹½¨½Å±¾
+buildTasks: # æ„å»ºè¿‡ç¨‹/è„šæœ¬å®šä¹‰
   - name: start_build
     commands:
     - echo "start build c++ program ..."
@@ -30,8 +30,8 @@ buildTasks: # ¹¹½¨¹ı³Ì/½Å±¾¶¨Òå£¬ÇëĞŞ¸ÄÎªÄãµÄÕæÊµ¹¹½¨½Å±¾
   - name: finished_build
     commands:
     - echo "finished build c++ program ..."
-artifacts: # ¹¹½¨²úÎï¶¨Òå£¬ÇëĞŞ¸ÄÎªÄãµÄÕæÊµ²úÎï
+artifacts: # æ„å»ºäº§ç‰©å®šä¹‰ï¼Œè¯·ä¿®æ”¹ä¸ºä½ çš„çœŸå®äº§ç‰©
   - name: demo 
     type: file
     path: output/demo.exe
-timeout: 30000 # ÈÎÎñ³¬Ê±Ê±³¤ÉèÖÃ£¬µ¥Î»ÎªÃë
+timeout: 30000 # ä»»åŠ¡è¶…æ—¶æ—¶é•¿è®¾ç½®ï¼Œå•ä½ä¸ºç§’
